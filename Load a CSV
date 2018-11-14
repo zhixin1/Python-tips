@@ -1,0 +1,29 @@
+
+
+# Load CSV (using python)
+import csv
+import numpy
+filename = 'pima-indians-diabetes.data.csv'
+raw_data = open(filename, 'rt')
+reader = csv.reader(raw_data, delimiter=',', quoting=csv.QUOTE_NONE)
+x = list(reader)
+data = numpy.array(x).astype('float')
+print(data.shape)
+
+
+
+# Load CSV using numpy
+import numpy
+filename = 'pima-indians-diabetes.data.csv'
+raw_data = open(filename, 'rt')
+data = numpy.loadtxt(raw_data, delimiter=",")
+print(data.shape)
+
+
+
+# Load CSV using Pandas
+import pandas
+filename = 'pima-indians-diabetes.data.csv'
+names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
+data = pandas.read_csv(filename, names=names)
+print(data.shape)
